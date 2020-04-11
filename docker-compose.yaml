@@ -1,0 +1,18 @@
+# docker-compose.yml
+version: "3.3"
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "1992:1992"
+    network_mode: host
+    depends_on:
+      - redis
+
+  redis:
+    image: redislabs/redisgears:latest
+    network_mode: host
+    ports:
+      - "6379:6379"
