@@ -1,0 +1,25 @@
+FROM ubuntu:18.04 as rd_themis
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      sudo less nano vim \
+      git curl wget ca-certificates \
+      tar unzip \
+      build-essential \
+      clang clang-7 clang-8 gcc gcc-8 \
+      clang-format clang-format-7 clang-tidy-7 clang-format-8 clang-tidy-8 \
+      libc++-7-dev libstdc++-8-dev \
+      gdb lldb elfutils strace \
+      libssl1.0-dev \
+      default-jdk \
+      nodejs npm \
+      redis-server\
+ && apt-get -y autoremove && apt-get -y clean \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN useradd --groups sudo --create-home --shell /bin/bash user \
+ && echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
+ && mkdir /projects && chown user:user /projects
+USER user
+WORKDIR /projects
+RUN cd /projects && git clone --recursive https://github.com/cossacklabs/rd_themis && cd rd_themis && make
+ENTRYPOINT [ "redis-server" ]
+CMD ["--port","6379"]
