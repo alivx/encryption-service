@@ -18,7 +18,7 @@ async def read_items(item: Item):
     _id = getUID()
     r.execute_command("rd_themis.cset {} {} {}".format(
         _id, item.password, item.value))
-    r.expire(_id,item.ttl)
+    r.expire(_id, item.ttl)
     query_items = {"_id": _id}
     return query_items
 
@@ -31,6 +31,5 @@ async def read_itemss(_id: str, password: str):
         value = r.execute_command("rd_themis.cget {} {}".format(_id, password))
     except:
         value = "decryption failed"
-    # value = encData("dec", _id, password)
     query_items = {"value": value}
     return query_items
