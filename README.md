@@ -1,10 +1,10 @@
 # API Encryption Service
 
-This project like a Encryption as service somehow, this service provide a high proformnce, and secoure way to store text based data using [Themis](https://www.cossacklabs.com/themis/) and [Redis](https://redis.io/).
+This project like an Encryption as service somehow, this service provide high performance and secure way to store text-based data using [Themis](https://www.cossacklabs.com/themis/) and [Redis](https://redis.io/).
 
 ### Use cases:
-1. Share a sensitive information for period of time.
-2. Save sensitive information for set of time.
+1. Share sensitive information for a period.
+2. Save sensitive information for a set of time.
 3. Vault key management.
 
 ### Installation
@@ -29,10 +29,10 @@ Recreating encryptionservice_api_1 ... done
 Attaching to encryptionservice_redis_1, encryptionservice_api_1
 ```
 
-### To do
-1. Add nginx with ssl setup in order to get encryption in transit.
+### Todo
+1. Add nginx with SSL setup to get encryption in transit.
 2. add a web interface to call the API.
-3. add abliliy to upload files.
+3. add the ability to upload files.
 
 ### Usages
 After startup the docker-compose, two services will be up and running.
@@ -43,9 +43,9 @@ After startup the docker-compose, two services will be up and running.
 
 calling the API using `curl`
 Info:
-* value: any thing you need to be encrypted.
-* password: password key
-* ttl: time to live (set time in second)
+* value: anything you need to be encrypted.
+* Password: password key
+* TTL: time to live (set time in second)
 
 ```Bash
 curl -X PUT "http://localhost:1992/set/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"value\":\"http://localhost:8000/docs#/default/read_items_seturl__put\",\"ttl\":500,\"password\":\"123\"}"
@@ -61,7 +61,7 @@ returned data:`{"value":"http://localhost:8000/docs#/default/read_items_seturl__
 
 #### How it works:
 
-After putting some text/something need to be encrypte. the api send the data into redis using `Themis module for Redis database`
+After putting some text/something need to be encrypted. the API sends the data into redis using `Themis module for Redis database`
 
 Redis Content:
 ```Bash
