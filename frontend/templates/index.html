@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>encryption-service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/divider-text-middle.css">
+    <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="/assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <script type=text/javascript> $(function() { $("#mybutton").click(function (event) { $.getJSON('/getid', { },
+    function(data) { }); return false; }); }); </script> 
+</head>
+
+<body>
+    <!-- Start: Highlight Blue -->
+    <div class="highlight-blue" style="background-color: rgb(60,119,14);">
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center">Encryption Server</h2>
+                <p class="text-center">This project based on&nbsp;FastAPI framework, high performance server, and&nbsp;Themis that provides crypto systems, Themis module for Redis database</p>
+            </div>
+            <!-- End: Intro -->
+            <!-- Start: Buttons -->
+            <div class="buttons"><a class="btn btn-primary" role="button" data-bs-hover-animate="tada" href="https://github.com/alivx/encryption-service">Github</a></div>
+            <!-- End: Buttons -->
+        </div>
+    </div>
+    <!-- End: Highlight Blue -->
+    <div class="container">
+        <div class="col">
+            <!-- Start: Pretty Registration Form -->
+            <div class="row register-form">
+                <div class="col-md-8 offset-md-2">
+                    {% if show  %}
+                    <form class="text-center  custom-form" method="post">
+                        <h1 class="text-center"><strong>Encrypt Something</strong><br></h1>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">String&nbsp;</label></div>
+                            <div class="col-sm-6 input-column"><input class="border rounded shadow form-control" type="text" data-bs-hover-animate="pulse" name="stringCont"></div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
+                            <div class="col-sm-6 input-column"><input class="border rounded shadow form-control" type="password" data-bs-hover-animate="pulse" name="passwordCont"></div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">TTL</label></div>
+                            <div class="col-sm-6 input-column"><input class="border rounded shadow form-control" type="text" data-bs-hover-animate="pulse" name="ttl" inputmode="numeric"></div>
+                        </div><button class="btn btn-light shadow submit-button" data-bs-hover-animate="pulse"  id = "mybutton" name="submit" type="submit"><strong>Get ID</strong></button></form>
+                    <!-- Start: divider-text-middle -->
+                    <div class="d-none" style="text-align:center;">
+                        {% else  %}
+                        <form class="text-center  custom-form" method="post">
+                            <h1 class="display-4 text-center  divider-style"><span class="text-info">ID: {{output}}</span></h1>
+                    {% endif %}
+                    </div>
+                    <!-- End: divider-text-middle -->
+                </div>
+            </div>
+            <!-- End: Pretty Registration Form -->
+        </div>
+    </div>
+    <!-- Start: Footer Basic -->
+    <div class="footer-basic">
+        <footer>
+            <!-- Start: Links -->
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://github.com/alivx">Softwares</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <!-- End: Links -->
+            <!-- Start: Copyright -->
+            <p class="copyright">Ali Baker © 2020</p>
+            <!-- End: Copyright -->
+        </footer>
+    </div>
+    <!-- End: Footer Basic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+</body>
+
+</html>
